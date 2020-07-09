@@ -7,14 +7,14 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func (head *ListNode) String() {
+func (head *ListNode) String() string {
 	if head == nil {
 		return "-> //"
 	}
 	return fmt.Sprintf("%d -> ", head.Val) + head.Next.String()
 }
 
-func Ints2List(nums ...int) ListNode {
+func Ints2List(nums ...int) *ListNode {
 	if len(nums) == 0 {
 		return nil
 	}
@@ -24,5 +24,5 @@ func Ints2List(nums ...int) ListNode {
 		lastNode.Next = &ListNode{Val: n}
 		lastNode = lastNode.Next
 	}
-	return head
+	return &head
 }
